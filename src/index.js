@@ -121,7 +121,7 @@ const buildChart = async (municipality) => {
         }]
     }
 
-    const chart = new Chart("#chart", {
+    frappeChart = new Chart("#chart", {
         data: chartData,
         title: "Population by year",
         height: 450,
@@ -129,16 +129,32 @@ const buildChart = async (municipality) => {
         colors: ["#eb5146"],
 
     })
-
 }
 
 const button = document.getElementById("submit-data");
 const input = document.getElementById("input-area");
+const estimateButton = document.getElementById("add-data");
 
 button.onclick = () => {
     buildChart(input.value)
 } 
 
+estimateButton.onclick = () => {
+    if (frappeChart == null) {
+        return false;
+    }
+
+    const data = frappeChart.realData.datasets[0].values
+    let deltaSum = 0;
+    for (let i = 1; i < data.length; i++) {
+        deltaSum += data[i] - data[i-1];        
+    }
+    const value = data[data.length - 1] + deltaSum/(data.length - 1)
+    frappeChart.addDataPoint("2022", [value])
+
+}
+
+let frappeChart = null;
 
 
 

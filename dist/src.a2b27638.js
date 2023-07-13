@@ -3462,7 +3462,7 @@ var getMunicipalities = /*#__PURE__*/function () {
 }();
 var buildChart = /*#__PURE__*/function () {
   var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(municipality) {
-    var municipalityData, municipalityNames, index, municipalityCode, data, labels, chartData, chart;
+    var municipalityData, municipalityNames, index, municipalityCode, data, labels, chartData;
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
@@ -3493,7 +3493,7 @@ var buildChart = /*#__PURE__*/function () {
               values: data.value
             }]
           };
-          chart = new _frappeChartsMin.Chart("#chart", {
+          frappeChart = new _frappeChartsMin.Chart("#chart", {
             data: chartData,
             title: "Population by year",
             height: 450,
@@ -3512,9 +3512,24 @@ var buildChart = /*#__PURE__*/function () {
 }();
 var button = document.getElementById("submit-data");
 var input = document.getElementById("input-area");
+var estimateButton = document.getElementById("add-data");
 button.onclick = function () {
   buildChart(input.value);
 };
+estimateButton.onclick = function () {
+  if (frappeChart == null) {
+    return false;
+  }
+  var data = frappeChart.realData.datasets[0].values;
+  var deltaSum = 0;
+  for (var i = 1; i < data.length; i++) {
+    deltaSum += data[i] - data[i - 1];
+  }
+  var value = data[data.length - 1] + deltaSum / (data.length - 1);
+  frappeChart.addDataPoint("2022", [value]);
+  console.log(frappeChart);
+};
+var frappeChart = null;
 },{"frappe-charts/dist/frappe-charts.min.esm":"node_modules/frappe-charts/dist/frappe-charts.min.esm.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -3540,7 +3555,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59907" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64758" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
