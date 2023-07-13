@@ -156,6 +156,7 @@ estimateButton.onclick = () => {
 
 let frappeChart = null;
 
+buildChart(input.value);
 
 
 

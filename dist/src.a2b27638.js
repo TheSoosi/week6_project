@@ -3527,9 +3527,9 @@ estimateButton.onclick = function () {
   }
   var value = data[data.length - 1] + deltaSum / (data.length - 1);
   frappeChart.addDataPoint("2022", [value]);
-  console.log(frappeChart);
 };
 var frappeChart = null;
+buildChart(input.value);
 },{"frappe-charts/dist/frappe-charts.min.esm":"node_modules/frappe-charts/dist/frappe-charts.min.esm.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -3555,7 +3555,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64758" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51474" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
