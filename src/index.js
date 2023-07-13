@@ -63,7 +63,7 @@ const getData = async (municipalityCode) => {
 
     const res = await fetch(url, {
         method: "POST",
-        headers: {"content-type": "applicatoin/json"},
+        headers: {"content-type": "application/json"},
         body: JSON.stringify(jsonQuery)
     })
     
@@ -82,7 +82,7 @@ const getMunicipalities = async  () => {
 
     const res = await fetch(url, {
         method: "GET",
-        headers: {"content-type": "applicatoin/json"},
+        headers: {"content-type": "application/json"},
     })
     
     if(!res.ok) {

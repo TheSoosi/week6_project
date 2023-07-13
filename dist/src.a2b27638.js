@@ -3396,7 +3396,7 @@ var getData = /*#__PURE__*/function () {
           return fetch(url, {
             method: "POST",
             headers: {
-              "content-type": "applicatoin/json"
+              "content-type": "application/json"
             },
             body: JSON.stringify(jsonQuery)
           });
@@ -3434,7 +3434,7 @@ var getMunicipalities = /*#__PURE__*/function () {
           return fetch(url, {
             method: "GET",
             headers: {
-              "content-type": "applicatoin/json"
+              "content-type": "application/json"
             }
           });
         case 3:
@@ -3555,7 +3555,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51474" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51980" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
